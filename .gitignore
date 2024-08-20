@@ -27,4 +27,4 @@ LocalPreferences.toml
 julia-*.out
 tmp.gif
 Untitled*ipynb
-.private/
+_private/
