@@ -28,3 +28,4 @@ julia-*.out
 tmp.gif
 Untitled*ipynb
 _private/
+*/*.png
