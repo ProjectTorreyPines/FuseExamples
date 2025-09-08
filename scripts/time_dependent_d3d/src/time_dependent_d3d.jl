@@ -1,14 +1,13 @@
 module time_dependent_d3d
 
     using FUSE
-    using Distributed
     using ArgParse
 
     export main
 
     function main()
         s = ArgParseSettings()
-        @add_arg_table s begin
+        @add_arg_table! s begin
             "shot"
                 help = "Shot number"
                 arg_type = Int
@@ -33,11 +32,8 @@ module time_dependent_d3d
                 help = "Run ID for OMFIT_PROFS Tree, only last three digits"
                 arg_type = String
                 default = ""
-        
         end
         args = parse_args(s)
-        FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fecthing
-        @everywhere using FUSE
         ini, act = FUSE.case_parameters(:D3D, args["shot"]; fit_profiles=true,
                                         EFIT_tree=args["EFIT_TREE"], PROFILES_tree=args["PROFILES_TREE"],
                                         CER_analysis_type=args["CER_ANALYSIS_TYPE"], EFIT_run_id=args["EFIT_RUN_ID"],
@@ -102,7 +98,5 @@ module time_dependent_d3d
         IMAS.imas2h5i(dd, joinpath(result_path,"fuse_time_dependent_$(args["shot"]).h5"))
     end
 
-    if abspath(PROGRAM_FILE) == @__FILE__
-        main()
-    end
 end
+
