@@ -7,10 +7,6 @@ import FUSE
 using Distributed # part of Julia standard library so doesn't need to be in Project.toml
 using ArgParse
 
-# Set up distributed workers and load FUSE everywhere
-FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
-@everywhere using FUSE
-
 function main()
     s = ArgParseSettings()
     @add_arg_table! s begin
@@ -101,3 +97,8 @@ function main()
     !isempty(result_path) && mkpath(result_path)
     IMAS.imas2h5i(dd, joinpath(result_path,"fuse_time_dependent_$(args["shot"]).h5"))
 end
+
+# Set up distributed workers and load FUSE everywhere
+FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
+@everywhere using FUSE
+main()
