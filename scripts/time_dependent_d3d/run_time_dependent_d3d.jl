@@ -3,11 +3,10 @@
 # Application entry point for time_dependent_d3d
 # This script handles the distributed setup and calls the module function
 
-using Distributed
-using time_dependent_d3d
-using time_dependent_d3d: FUSE
-
 module time_dependent_d3d
+
+    using ArgParse
+    using FUSE
 
     function main()
         s = ArgParseSettings()
@@ -94,21 +93,21 @@ module time_dependent_d3d
         act.ActorDynamicPlasma.ip_controller = false
         act.ActorDynamicPlasma.time_derivatives_sources = true
 
-        actor = FUSE.ActorDynamicPlasma(dd, act; verbose=false)
+        FUSE.ActorDynamicPlasma(dd, act; verbose=false)
         result_path = get(ENV, "FUSE_RESULT_ARCHIVE", "")
-        if length(result_path) > 0
-            Base.run(`mkdir -p $result_path`)
-        end
+        !isempty(result_path) && mkpath(result_path)
         IMAS.imas2h5i(dd, joinpath(result_path,"fuse_time_dependent_$(args["shot"]).h5"))
     end
 
 end
 
-
+import FUSE
+using Distributed # part of Julia standard library so doesn't need to be in Project.toml
+import .time_dependent_d3d
 
 # Set up distributed workers and load FUSE everywhere
 FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
 @everywhere using FUSE
-import .time_dependent_d3d
+
 # Run the main function
 time_dependent_d3d.main()

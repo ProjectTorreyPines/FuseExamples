@@ -1,14 +1,3 @@
-name = "time_dependent_d3d"
-uuid = "fe00675a-21cf-4a53-8899-8a0f6abe6ea4"
-authors = ["AreWeDreaming <denks@fusion.gat.com>"]
-version = "0.1.0"
-
 [deps]
 ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 FUSE = "e64856f0-3bb8-4376-b4b7-c03396503992"
-
-[compat]
-ArgParse = "1.2.0"
-Distributed = "1.11.0"
-FUSE = "0.9.1"
