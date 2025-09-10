@@ -99,6 +99,11 @@ function main()
 end
 
 # Set up distributed workers and load FUSE everywhere
-FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
+# Track the PIDs to avoid the creation of ZOmbies
+pid_list = FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
 @everywhere using FUSE
-main()
+try:
+    main()
+finally:
+    # Remove PIDs
+    Distributed.rmprocs(pid_list)
