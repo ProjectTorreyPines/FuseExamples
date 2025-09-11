@@ -102,8 +102,9 @@ end
 # Track the PIDs to avoid the creation of ZOmbies
 pid_list = FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
 @everywhere using FUSE
-try:
+try
     main()
-finally:
+finally
     # Remove PIDs
     Distributed.rmprocs(pid_list)
+end
