@@ -94,17 +94,18 @@ function main()
 
     FUSE.ActorDynamicPlasma(dd, act; verbose=false)
     result_path = get(ENV, "FUSE_RESULT_ARCHIVE", "")
-    !isempty(result_path) && mkpath(result_path)
-    IMAS.imas2h5i(dd, joinpath(result_path,"fuse_time_dependent_$(args["shot"]).h5"))
+    # !isempty(result_path) && mkpath(result_path)
+    # IMAS.imas2h5i(dd, joinpath(result_path,"fuse_time_dependent_$(args["shot"]).h5"))
 end
 
+main()
 # Set up distributed workers and load FUSE everywhere
 # Track the PIDs to avoid the creation of ZOmbies
-pid_list = FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
-@everywhere using FUSE
-try
-    main()
-finally
-    # Remove PIDs
-    Distributed.rmprocs(pid_list)
-end
+# pid_list = FUSE.parallel_environment("localhost", 1) # Get one extra worker for OMAS fetching
+# @everywhere using FUSE
+# try
+#     main()
+# finally
+#     # Remove PIDs
+#     Distributed.rmprocs(pid_list)
+# end
