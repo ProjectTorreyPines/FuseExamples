@@ -10,57 +10,39 @@ using ArgParse
 function main()
     s = ArgParseSettings()
     @add_arg_table! s begin
-        """
-        shot
-        """
+        "shot"
         help = "Shot number"
         arg_type = Int
         required = true
-        """
-        --EFIT_TREE
-        """
+        "--EFIT_TREE"
         help = "Source of LCFS shape"
         arg_type = String
         default = "EFIT02"
-        """
-        --PROFILES_TREE
-        """
+        "--PROFILES_TREE"
         help = "Source of profile data"
         arg_type = String
         default = "ZIPFIT01"
-        """
-        --CER_ANALYSIS_TYPE
-        """
+        "--CER_ANALYSIS_TYPE"
         help = "CER analysis type, either CERQUICK, CERAUTO, CERFAST"
         arg_type = String
         default = "CERQUICK"
-        """
-        --EFIT_RUN_ID
-        """
+        "--EFIT_RUN_ID"
         help = "Run ID for EFIT Tree, only last two digits"
         arg_type = String
         default = ""
-        """
-        --PROFILES_RUN_ID
-        """
+        "--PROFILES_RUN_ID"
         help = "Run ID for OMFIT_PROFS Tree, only last three digits"
         arg_type = String
         default = ""
-        """
-        --RECONSTRUCTION
-        """
+        "--RECONSTRUCTION"
         help = "Run time dependent simulation in reconstruction mode"
         arg_type = Bool
         default = true
-        """
-        --FIT_PROFILES
-        """
+        "--FIT_PROFILES"
         help = "Let FUSE fit the raw data into profiles"
         arg_type = Bool
         default = true
-        """
-        --USE_LOCAL_CACHE
-        """
+        "--USE_LOCAL_CACHE"
         help = "Use local data cache"
         arg_type = Bool
         default = true
@@ -85,9 +67,15 @@ function main()
         :EFIT_run_id=>args["EFIT_RUN_ID"],
         :PROFILES_run_id=>args["PROFILES_RUN_ID"])
 
-    @everywhere import FUSE
-    @everywhere ProgressMeter = FUSE.ProgressMeter
-
     study = FUSE.StudyPostdictive(sty)
     FUSE.run(study)
+end
+
+try
+    @everywhere import FUSE
+    @everywhere ProgressMeter = FUSE.ProgressMeter
+    main()
+finally
+    # Remove PIDs
+    Distributed.rmprocs(Distributed.workers())
 end
