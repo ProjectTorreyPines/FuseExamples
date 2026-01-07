@@ -65,7 +65,8 @@ function main()
         :PROFILES_tree=>args["PROFILES_TREE"],
         :CER_analysis_type=>args["CER_ANALYSIS_TYPE"],
         :EFIT_run_id=>args["EFIT_RUN_ID"],
-        :PROFILES_run_id=>args["PROFILES_RUN_ID"])
+        :PROFILES_run_id=>args["PROFILES_RUN_ID"],
+        :redirect_output=>false)
 
     study = FUSE.StudyPostdictive(sty)
     FUSE.run(study)
