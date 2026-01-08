@@ -57,6 +57,7 @@ function main()
     sty.device = :D3D
     sty.shots = [args["shot"]]
     sty.reconstruction = args["RECONSTRUCTION"]
+    sty.redirect_output = false
 
     sty.kw_case_parameters=Dict{Symbol,Any}(
         :use_local_cache=>args["USE_LOCAL_CACHE"],
@@ -65,8 +66,7 @@ function main()
         :PROFILES_tree=>args["PROFILES_TREE"],
         :CER_analysis_type=>args["CER_ANALYSIS_TYPE"],
         :EFIT_run_id=>args["EFIT_RUN_ID"],
-        :PROFILES_run_id=>args["PROFILES_RUN_ID"],
-        :redirect_output=>false)
+        :PROFILES_run_id=>args["PROFILES_RUN_ID"])
 
     study = FUSE.StudyPostdictive(sty)
     FUSE.run(study)
