@@ -1,6 +1,6 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.8"
+julia_version = "1.11.7"
 manifest_format = "2.0"
 project_hash = "7e91f517dc070147440fcf7a6de3c7ca840c7810"
 
@@ -851,9 +851,9 @@ version = "0.4.2"
 
 [[deps.FUSE]]
 deps = ["AbstractTrees", "BalanceOfPlantSurrogate", "BoundaryPlasmaModels", "CHEASE", "CSV", "ClusterManagers", "DataFrames", "Dates", "DelimitedFiles", "Distributed", "EGGO", "EPEDNN", "FRESCO", "FileIO", "FixedPointAcceleration", "ForwardDiff", "FusionMaterials", "GACODE", "GeoInterface", "HDF5", "HelpPlots", "IMAS", "IMASutils", "InteractiveUtils", "Interpolations", "JSON", "JpegTurbo", "LaTeXStrings", "LibGEOS", "LinearAlgebra", "Logging", "LoggingExtras", "MXHEquilibrium", "Measurements", "Memoize", "Metaheuristics", "NLsolve", "NNeutronics", "NeoclassicalTransport", "NonlinearSolve", "Optim", "OrderedCollections", "Plots", "PolygonOps", "Printf", "ProgressMeter", "QED", "QuadGK", "RABBIT", "Random", "Serialization", "SimulationParameters", "SnoopPrecompile", "SpecialFunctions", "StaticArrays", "TEQUILA", "TJLF", "TORBEAM", "Test", "TimerOutputs", "TroyonBetaNN", "TurbulentTransport", "VacuumFields", "Weave", "YAML"]
-path = "/Users/lyons/.julia/dev/FUSE"
+path = "/Users/lyons/.julia/dev/FuseExamples/iter_test/dev/FUSE"
 uuid = "e64856f0-3bb8-4376-b4b7-c03396503992"
-version = "0.8.10"
+version = "0.8.9"
 
     [deps.FUSE.extensions]
     ThermalSystemModelsExt = "ThermalSystemModels"
@@ -1245,10 +1245,10 @@ uuid = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
 version = "0.3.28"
 
 [[deps.IMAS]]
-deps = ["Compat", "Contour", "CoordinateConventions", "DSP", "DataInterpolations", "Dates", "ExpiringCaches", "FuseExchangeProtocol", "GraphRecipes", "Graphs", "HelpPlots", "IMASdd", "IMASutils", "Interpolations", "Jedis", "LaTeXStrings", "LinearAlgebra", "Measurements", "Measures", "Memoize", "MillerExtendedHarmonic", "NaturalNeighbours", "Optim", "OrderedCollections", "PeriodicTable", "PhysicalConstants", "PlotUtils", "Plots", "PolygonOps", "Printf", "Ratios", "RecipesBase", "Roots", "StaticArrays", "Statistics"]
-path = "/Users/lyons/.julia/dev/IMAS"
+deps = ["AbstractTrees", "Compat", "Contour", "CoordinateConventions", "DSP", "DataInterpolations", "Dates", "ExpiringCaches", "ForwardDiff", "FuseExchangeProtocol", "GraphRecipes", "Graphs", "HelpPlots", "IMASdd", "IMASutils", "Interpolations", "Jedis", "LaTeXStrings", "LinearAlgebra", "Measurements", "Measures", "Memoize", "MillerExtendedHarmonic", "NLsolve", "NaturalNeighbours", "Optim", "OrderedCollections", "PeriodicTable", "PhysicalConstants", "PlotUtils", "Plots", "PolygonOps", "Printf", "Random", "Ratios", "RecipesBase", "Roots", "StaticArrays", "Statistics"]
+path = "/Users/lyons/.julia/dev/FuseExamples/iter_test/dev/IMAS"
 uuid = "13ead8c1-b7d1-41bb-a6d0-5b8b65ed587a"
-version = "5.4.5"
+version = "5.4.9"
 
 [[deps.IMASdd]]
 deps = ["AbstractTrees", "CoordinateConventions", "DataInterpolations", "Dates", "HDF5", "InteractiveUtils", "JSON", "Memoization", "OrderedCollections", "PrecompileTools", "Printf", "StaticArraysCore", "ThreadSafeDicts", "TimerOutputs"]
@@ -1745,9 +1745,9 @@ version = "2.11.0"
 
 [[deps.LinearSolve]]
 deps = ["ArrayInterface", "ChainRulesCore", "ConcreteStructs", "DocStringExtensions", "EnumX", "GPUArraysCore", "InteractiveUtils", "Krylov", "LazyArrays", "Libdl", "LinearAlgebra", "MKL_jll", "Markdown", "OpenBLAS_jll", "PrecompileTools", "Preferences", "RecursiveArrayTools", "Reexport", "SciMLBase", "SciMLLogging", "SciMLOperators", "Setfield", "StaticArraysCore"]
-git-tree-sha1 = "e9dcb5fd52663bfd094069e6f8e7b97eb9557edd"
+git-tree-sha1 = "230c7431d4afcaba66fa9d5b721ecd84eafe84bb"
 uuid = "7ed4a6bd-45f5-4d41-b270-4a48e9bafcae"
-version = "3.52.0"
+version = "3.53.0"
 
     [deps.LinearSolve.extensions]
     LinearSolveAMDGPUExt = "AMDGPU"
@@ -2755,9 +2755,9 @@ version = "0.6.12"
 
 [[deps.RecursiveArrayTools]]
 deps = ["Adapt", "ArrayInterface", "DocStringExtensions", "GPUArraysCore", "LinearAlgebra", "RecipesBase", "StaticArraysCore", "Statistics", "SymbolicIndexingInterface"]
-git-tree-sha1 = "a1b9f699b363245333a0e4d21054e7e160d196ba"
+git-tree-sha1 = "66da00edb64d4b50ed9de10bc3284b2cb817dcb0"
 uuid = "731186ca-8d62-57ce-b412-fbd966d074cd"
-version = "3.40.0"
+version = "3.41.0"
 
     [deps.RecursiveArrayTools.extensions]
     RecursiveArrayToolsFastBroadcastExt = "FastBroadcast"
@@ -3353,9 +3353,9 @@ version = "1.0.7"
 
 [[deps.TurbulentTransport]]
 deps = ["BSON", "Dates", "Flux", "GACODE", "IMAS", "IMASutils", "Measurements", "Memoize", "ONNXNaiveNASflux", "ONNXRunTime", "StatsBase", "TJLF"]
-path = "/Users/lyons/.julia/dev/TurbulentTransport"
+path = "/Users/lyons/.julia/dev/FuseExamples/iter_test/dev/TurbulentTransport"
 uuid = "9bf5e8f4-5746-4003-bc69-ef83265c10ca"
-version = "1.0.3"
+version = "1.0.1"
 
 [[deps.URIs]]
 git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"
