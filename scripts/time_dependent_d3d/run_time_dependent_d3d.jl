@@ -58,6 +58,7 @@ function main()
     sty.shots = [args["shot"]]
     sty.reconstruction = args["RECONSTRUCTION"]
     sty.redirect_output = false
+    sty.verbose = false
 
     sty.kw_case_parameters=Dict{Symbol,Any}(
         :use_local_cache=>args["USE_LOCAL_CACHE"],
