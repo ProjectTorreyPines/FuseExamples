@@ -49,7 +49,7 @@ function main()
     end
     args = parse_args(s)
 
-    sty = FUSE.study_parameters(:Postdictive)
+    sty = FUSE.study_parameters(:PredictiveRT)
     sty.server = get(ENV, "FUSE_SERVER", "localhost")
     sty.n_workers = 0
     sty.release_workers_after_run = true
@@ -69,7 +69,7 @@ function main()
         :EFIT_run_id=>args["EFIT_RUN_ID"],
         :PROFILES_run_id=>args["PROFILES_RUN_ID"])
 
-    study = FUSE.StudyPostdictive(sty)
+    study = FUSE.StudyPredictiveRT(sty)
     FUSE.run(study)
 end
 
