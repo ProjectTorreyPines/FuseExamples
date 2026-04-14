@@ -67,7 +67,7 @@ function main()
     end
     args = parse_args(s)
 
-    sty = FUSE.study_parameters(:Postdictive)
+    sty = FUSE.study_parameters(:PostdictiveRT)
     sty.server = get(ENV, "FUSE_SERVER", "localhost")
     sty.n_workers = 0
     sty.release_workers_after_run = true
@@ -88,6 +88,6 @@ function main()
     @everywhere import FUSE
     @everywhere ProgressMeter = FUSE.ProgressMeter
 
-    study = FUSE.StudyPostdictive(sty)
+    study = FUSE.StudyPostdictiveRT(sty)
     FUSE.run(study)
 end
