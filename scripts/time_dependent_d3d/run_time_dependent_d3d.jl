@@ -17,16 +17,20 @@ function main()
         "--EFIT_TREE"
         help = "Source of LCFS shape"
         arg_type = String
-        default = "EFIT02"
-        "--PROFILES_TREE"
+        default = "EFIT01"
+        """
+        --PROFILES_TREE
+        """
         help = "Source of profile data"
         arg_type = String
         default = "ZIPFIT01"
         "--CER_ANALYSIS_TYPE"
         help = "CER analysis type, either CERQUICK, CERAUTO, CERFAST"
         arg_type = String
-        default = "CERQUICK"
-        "--EFIT_RUN_ID"
+        default = "CERAUTO"
+        """
+        --EFIT_RUN_ID
+        """
         help = "Run ID for EFIT Tree, only last two digits"
         arg_type = String
         default = ""
