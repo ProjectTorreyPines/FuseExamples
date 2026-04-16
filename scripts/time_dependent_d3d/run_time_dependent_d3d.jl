@@ -21,7 +21,7 @@ function main()
         """
         help = "Source of LCFS shape"
         arg_type = String
-        default = "EFIT02"
+        default = "EFIT01"
         """
         --PROFILES_TREE
         """
@@ -33,7 +33,7 @@ function main()
         """
         help = "CER analysis type, either CERQUICK, CERAUTO, CERFAST"
         arg_type = String
-        default = "CERQUICK"
+        default = "CERAUTO"
         """
         --EFIT_RUN_ID
         """
