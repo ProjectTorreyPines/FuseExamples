@@ -52,6 +52,18 @@ function main()
         help = "Run time dependent simulation in reconstruction mode"
         arg_type = Bool
         default = true
+        """                                     
+        --START_TIME                        
+        """
+        help = "Override simulation start time [s]"                                                                                                                                                 
+        arg_type = Float64
+        default = NaN                                                                                                                                                                        
+        """                                 
+        --END_TIME
+        """                                                                                                                                                                                         
+        help = "Override simulation end time [s]"
+        arg_type = Float64                                                                                                                                                                         
+        default = NaN
         """
         --FIT_PROFILES
         """
