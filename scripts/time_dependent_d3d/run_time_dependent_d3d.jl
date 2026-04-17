@@ -18,9 +18,7 @@ function main()
         help = "Source of LCFS shape"
         arg_type = String
         default = "EFIT01"
-        """
-        --PROFILES_TREE
-        """
+        "--PROFILES_TREE"
         help = "Source of profile data"
         arg_type = String
         default = "ZIPFIT01"
@@ -28,9 +26,7 @@ function main()
         help = "CER analysis type, either CERQUICK, CERAUTO, CERFAST"
         arg_type = String
         default = "CERAUTO"
-        """
-        --EFIT_RUN_ID
-        """
+        "--EFIT_RUN_ID"
         help = "Run ID for EFIT Tree, only last two digits"
         arg_type = String
         default = ""
@@ -50,6 +46,10 @@ function main()
         help = "Use local data cache"
         arg_type = Bool
         default = true
+        "--save_path"
+        help = "Where the output should be stored"
+        arg_type = String
+        default = ""
     end
     args = parse_args(s)
 
@@ -63,7 +63,9 @@ function main()
     sty.reconstruction = args["RECONSTRUCTION"]
     sty.redirect_output = false
     sty.verbose = false
-
+    if !isempty(args["save_path"]) > 0
+        sty.save_folder = args["save_path"]
+    end
     sty.kw_case_parameters=Dict{Symbol,Any}(
         :use_local_cache=>args["USE_LOCAL_CACHE"],
         :fit_profiles=>args["FIT_PROFILES"],
