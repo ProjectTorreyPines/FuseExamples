@@ -71,6 +71,8 @@ function main()
     sty.reconstruction = args["RECONSTRUCTION"]
     sty.redirect_output = false
     sty.verbose = false
+    sty.start_time = args["START_TIME"]
+    sty.end_time = args["END_TIME"]
     if !isempty(args["save_path"]) > 0
         sty.save_folder = args["save_path"]
     end
