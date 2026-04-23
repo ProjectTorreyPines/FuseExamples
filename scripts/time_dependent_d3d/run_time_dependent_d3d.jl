@@ -4,7 +4,7 @@
 # This script handles the distributed setup and calls the module function
 
 import FUSE
-using Distributed # part of Julia standard library so doesn't need to be in Project.toml
+using Distributed
 using ArgParse
 
 function main()
