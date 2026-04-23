@@ -1,3 +1,4 @@
 [deps]
 ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 FUSE = "e64856f0-3bb8-4376-b4b7-c03396503992"
